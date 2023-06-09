@@ -9,7 +9,7 @@ def gen_artist_html(artist_id, tagger):
     sl = page.find("div", class_="songlist-table-block")
     names = sl.find_all("span", class_="songlist-title")
     lyrics = sl.find_all("span", class_="utaidashi")
-    artist = sl.find("h2").text[7:-30]
+    artist = sl.find("h2").text.split("の歌詞")[0][7:]
     songs = []
     for i in range(len((lyrics))):
         diff = difficulty_eval(lyrics[i].contents[0].text.replace('\u3000', ' '), tagger)
