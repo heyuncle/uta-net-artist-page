@@ -3,7 +3,7 @@ import math
 def difficulty_eval(sample, tagger):
     parsed = tagger.parse(sample).split("\n")
     indices = []
-    with open("corpus/freq_20k.txt", "r") as f:
+    with open("corpus/freq_20k.txt", "r", encoding="utf8") as f:
         freq = f.read().split("\n")
         for col in [token.split() for token in parsed]:
             # keiyoushi, meishi (not proper), doushi, has columns, does not start with a non-kana or kanji (not English)

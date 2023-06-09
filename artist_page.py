@@ -16,7 +16,7 @@ def gen_artist_html(artist_id, tagger):
         if diff!=-1:
             songs.append((diff, '\n' + '## ' + names[i].text + '\n' + '### JLPT N' + str(diff) + '\n' + lyrics[i].contents[0].text.replace('\u3000\u3000', '  \n').replace('\u3000', ' ')))
     sort_songs = sorted(songs, key=lambda tup: tup[0], reverse=True)
-    with open("./output/" + artist + ".html","w+") as f:
+    with open("./output/" + artist + ".html","w+", encoding="utf8") as f:
         f.write(r'''<body id="md" style="background-color:#1E1E1E;font-family:'Helvetica Neue',Helvetica,sans-serif;color:#D4D4D4;padding:20px">''')
         f.write('\n# ' + artist)
         for tup in sort_songs:
